@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeMate</title>
+    {%  load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'create/style.css' %}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapi.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div  class="container-fluid">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+        </button>
+            <a class="navbar-brand" href="{% url 'create:index' %} "><img src={% static 'create/images/capture.JPG' %} style="height:200%;border-radius:10px;"></a>
+
+
+        <!--Items-->
+        <ul class="nav navbar-nav navbar-right">
+            <li class="ff">
+                <a href="#"><span style="color:white">Sign Up</span></a>
+            </li>
+            <li class="">
+                <a href="#"><span style="color:white">Login</span></a>
+            </li>
+            <li class="">
+                <a href="#"<span style="color:white">Blog</span></a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+
+
+    <div class="main-text">
+        <h1>Share Code in Real-time with Developers</h1>
+    </div>
+    <div class="main-text-tag">
+        <h4>An online code editor.</h4>
+    </div>
+    <div class="main-btn">
+        <button class="btn btn-info btn-lg" ><a href="{% url 'create:detail' %}">Share</a></button>
+    </div>
+    <div class="footer">
+        <p>Created by <strong><u><a href="https://www.linkedin.com/in/siddharth-arya-353b0b62/">Siddharth Arya</a></u></strong>. For any feedback or queries <a href="mailto: aryasid98@gmail.com?subject=CodeMate%20Conversation"> mail</a> me.
+        </p>
+    </div>
+
+</body>
+</html>

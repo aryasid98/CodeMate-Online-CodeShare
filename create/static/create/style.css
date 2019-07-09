@@ -1,0 +1,61 @@
+body{
+    background: white url("images/background.jpg");
+}
+
+
+.navbar{
+    background: rgba(255,255,255,0);
+}
+
+.navbar-brand{
+    font-family: "Comic Sans MS", Times, serif;
+    color: white;
+    font-size: 20em;
+
+}
+.main-text{
+    text-align: center;
+    margin-top: 200px;
+    color:white;
+    font-family: "Buxton Sketch" ;
+}
+.main-text-tag{
+    text-align: center;
+    margin-top:10px;
+    color: beige;
+    font-family: "Buxton Sketch";
+}
+
+.main-btn{
+    margin-left: 725px;
+    margin-top: 25px;
+
+}
+
+.error{
+    width: 100%;
+
+}
+.editor{
+    width: 100%;
+}
+.slug-a{
+    text-align: center;
+    background-color: lightslategray;
+    border-radius: 30px; padding: ;
+    margin-left: 20%;
+    position: absolute;
+}
+
+.footer{
+    height: 205px;
+    padding-top: 70px;
+    margin-top: 175px;
+    margin-left: 60px;
+    margin-right: 63px;
+    font-family: 'Book Antiqua';
+    background-color: lightskyblue;
+    font-size: 30px;
+    border-radius: 3%;
+    text-align: center;
+}

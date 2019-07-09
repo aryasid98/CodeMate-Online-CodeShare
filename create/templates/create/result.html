@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final-CodeMate</title>
+    {%  load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'create/style.css' %}"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapi.com/css?family=Satisfy" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+
+
+        <nav class="navbar navbar-inverse">
+        <div  class="container-fluid">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+        </button>
+            <a class="navbar-brand" href="{% url 'create:index' %} "><img src={% static 'create/images/capture.JPG' %} style="height:165%;border-radius:10px;"></a>
+
+
+        <!--Items-->
+        <ul class="nav navbar-nav navbar-right">
+
+            <li class="">
+                <a href="#"><span style="color:white">Sign Up</span></a>
+            </li>
+            <li class="">
+                <a href="#"><span style="color:white">Login</span></a>
+            </li>
+            <li class="">
+                <a href="#"<span style="color:white">Blog</span></a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+     <form action="{{ object.slug }}/modify/" method="POST">
+        {% csrf_token %}
+    <div class="upper">
+        <input type="text" class="url"  id="url"  style="width: 450px; font-family: 'Buxton Sketch' ;font-size: 23px; background-color: lightslategray; border-radius: 30px; padding: 4px 30px;; margin-left: 6%;">
+        <script>
+            document.getElementById('url').value='http://127.0.0.1:8000/create/result/{{ object.slug }}'
+        </script> &nbsp;
+        <button onclick="myFunction()" style="border-radius: 50%; padding: 5px 10px;"><span class="glyphicon glyphicon-link" ></span></button>
+        <script>
+            function myFunction() {
+              var copyText = document.getElementById("url");
+              copyText.select();
+              document.execCommand("copy");
+            }
+        </script>
+
+
+        <input type="text" class="lang" id="lang" style="font-family: 'Buxton Sketch'; font-size: 23px; background-color: lightslategray; border-radius: 30px; padding: 3px 14px; margin-left: 6%; position: absolute;" name="lang">
+        <script>
+            document.getElementById('lang').value='{{ object.lang }}'
+        </script>
+
+        <input type="submit" value="Save" style="font-family: Pristina; font-size: 23px; background-color: lightslategray; border-radius: 30px; padding: 6px 15px; margin-left: 36%; position: absolute;"></input>
+
+        <a href="{{ object.slug }}/delete/" style="font-family: Pristina; color: black; border: 2px solid;border-bottom-color: gray;border-top-color: white; border-right-color: gray; border-left-color: white;font-size: 23px; background-color: lightslategray; border-radius: 30px; padding: 6px 15px; margin-left: 45%; position: absolute;">Delete</a>
+    </div>
+<br>
+        <div id="buffer" style="display: none">{{ object.content }}</div>
+        <div id="editor" name="content" style="height: 600px; width: 1480px;margin-left: 17px;border-radius: 10px;"> </div>
+             <textarea type='text' id='id_content' name='content' maxlength='1000000' style="display:none"></textarea>
+
+
+             <script>
+                var editor = ace.edit("editor");
+                editor.getSession().setMode('ace/mode/c_cpp');
+                editor.setTheme('ace/theme/monokai');
+                editor.getSession().setMode('ace/mode/'+'{{ object.language }}'.toLowerCase())
+                editor.getSession().setValue(document.getElementById('buffer').textContent);
+                 $('#id_theme').on('change',function() {
+                        editor.setTheme('ace/theme/'+$(this).val().toLowerCase());
+                    });
+
+                 var textarea=$('#id_content');
+                 editor.getSession().on('change', function () {
+                 textarea.val(editor.getSession().getValue());
+                 });
+                 textarea.val(editor.getSession().getValue());
+             </script>
+     </form>
+
+</body>
+</html>
